@@ -1,0 +1,25 @@
+{
+  "scripts": {
+    "test": "karma start",
+    "build": "yarn test --single-run && yarn webpack --mode=production",
+    "watch": "concurrently 'yarn karma start' 'yarn webpack --watch --mode=development'"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-decorators": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "concurrently": "^3.6.0",
+    "jasmine-core": "^3.1.0",
+    "karma": "^2.0.4",
+    "karma-babel-preprocessor": "^7.0.0",
+    "karma-jasmine": "^1.1.2",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "karma-webpack": "^3.0.0",
+    "standard": "^11.0.1",
+    "standard-loader": "^6.0.1",
+    "webpack": "^4.15.0",
+    "webpack-cli": "^3.0.8"
+  }
+}
