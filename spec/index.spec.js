@@ -1,8 +1,7 @@
-/* global describe it expect */
 import foo from '../src/index'
 
 describe('with-html', () => {
-  it('should be defined', () => {
+  it('should be foo', () => {
     expect(foo).toBe('foo')
   })
 })

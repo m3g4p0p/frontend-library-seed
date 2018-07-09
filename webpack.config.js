@@ -1,7 +1,19 @@
-const path = require('path')
 
-module.exports = {
-  entry: './src/index.js',
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+const { resolve, join } = require('path')
+
+const path = {
+  src: resolve(__dirname, 'src'),
+  dist: resolve(__dirname, 'lib')
+}
+
+module.exports = ({ production = false } = {}) => ({
+  entry: {
+    superlib: join(path.src, 'index.js')
+  },
+  plugins: [
+    new CleanWebpackPlugin(path.dist)
+  ],
   module: {
     rules: [{
       enforce: 'pre',
@@ -14,8 +26,12 @@ module.exports = {
       loader: 'babel-loader'
     }]
   },
+  mode: production ? 'production' : 'development',
+  devtool: production ? false : 'inline-source-map',
   output: {
-    filename: 'main.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.dist,
+    filename: '[name].js',
+    library: '[name]',
+    libraryTarget: 'umd'
   }
-}
+})
