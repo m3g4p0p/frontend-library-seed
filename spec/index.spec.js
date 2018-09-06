@@ -1,6 +1,6 @@
 import foo from '../src/index'
 
-describe('with-html', () => {
+describe('foo', () => {
   it('should be foo', () => {
     expect(foo).toBe('foo')
   })
